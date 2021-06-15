@@ -93,3 +93,24 @@
 
 5. DIP (Dependency Inversion Principle) 의존성 역전 원칙
 * 자신보다 변하기 쉬운 것에 의존하지 말아야 한다. 
+
+
+# POJO Java?
+
+POJO (Plain Old Java Object)
+순수한 자바 오브젝트 
+
+## 특징
+1. 특정 규약에 종속되지 않는다.
+   * 특정 Library, Module에서 정의된 클래스를 상속 받아서 구현하지 않아도 됨. 
+   * POJO가 되기 위해서는 외부에 의존성을 두지 않고 순수한 JAVA로 구성해야함.
+     
+2. 특정 환경에 종속되지 않는다. 
+    * 만일 특정 비즈니스 로직을 처리하는 부분에 외부 종속적인 http request, session등 POJO를 위배한 것으로 간주 
+    * @Anotation 기반으로 설정하는 부분도 엄연히는 POJO라고 볼 수 없다. 
+
+
+
+
+
+
