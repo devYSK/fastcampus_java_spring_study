@@ -172,8 +172,47 @@ SW를 설계할 때는 기존에 경험이 매우 중요. 그러나 모든 사�
 * Memento
 
 
+# Singleton Pattern
+싱글톤 패턴은 어떠한 클래스(객체)가 유일하게 1개만 존재할 때 사용
+
+이를 주로 사용하는 곳은 서로 자원을 공유 할 때 사용하는데, 실세계에서는 프린터가 해당, 실제 프로그래밍에서는 TCP Socket 통신에서 서버와 연결된 connect 객체에 주로 사용
+
+```java
+public class SocketClient {
+
+    private static SocketClient socketClient = null;
+
+    // default 생성자 막기
+    private SocketClient(){}
+
+    public static SocketClient getInstance(){
+
+        if(socketClient == null){
+            socketClient = new SocketClient();
+            System.out.println("socket new instance");
+        }
+
+        return socketClient;
+    }
+
+    public void connect(){
+        System.out.println("socket");
+    }
+
+}
+
+```
+# Adapter Pattern
+
+호환성이 없는 기존 클래스의 인터페이스를 변환하여 재사용 할 수 있도록 한다.  
+SOLID중에서 개방 폐쇄의 원칙(OCP)를 따른다.
 
 
+# Proxy Pattern
+
+Proxy는 대리인 이라는 뜻으로써, 뭔가를 대신해서 처리하는 것
+Proxy Class를 통해서 대신 전달 하는 형태로 설계 되며, 실제 Client는 Proxy로부터 결과를 받는다. - Cache의 기능오로도 활용 가능  
+SOLID 중에서 개방 폐쇄의 원칙(OCP)와 의존 역전 원칙(DIP)를 따름.
 
 
 
