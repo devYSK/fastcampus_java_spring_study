@@ -46,3 +46,11 @@
 # DELETE API
 
 * @DeleteMapping - Delete Resource 설정
+
+
+# Response 응답 내려주기
+
+* String - 일반 text type 응답
+* Object - 자동으로 Json 변환되어 응답 상태값은 항상 200 OK
+* ReponseEntity - Body 내용을 Object로 설정 상황에 따라서 Http status code 설정
+* @ResponseBody - RestController가 아닌곳(Controller)에서 Json 응답을 내릴 때
