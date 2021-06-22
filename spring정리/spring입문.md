@@ -119,6 +119,16 @@
 ### gradle 기준 의존성 추가방법
 * `implementation 'org.springframework.boot:spring-boot-starter-aop'`
 
+* aop를 이용할때 포인트컷 메소드를 작성해서 적용 시켜야 함.
+* 범위 적용 시킬때, 포인트컷 관련 문서 찾아볼 것
+
+```java
+@Pointcut("execution(* com.example.aop.controller..*.*(..))")
+    private void cut() {
+
+    }
+```
+
 # 여러가지 어노테이션
 
 * @SpringBootApplication : Spring boot application으로 설정
