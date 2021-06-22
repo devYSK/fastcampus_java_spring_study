@@ -115,5 +115,27 @@
 * @Around : Befroe / after 모두 제어 
 
 
+
 ### gradle 기준 의존성 추가방법
 * `implementation 'org.springframework.boot:spring-boot-starter-aop'`
+
+# 여러가지 어노테이션
+
+* @SpringBootApplication : Spring boot application으로 설정
+* @Controller : View를 제공하는 controller로 설정
+* @RestController : REST API를 제공하는 controller로 설정
+* @RequestMapping : URL 주소를 맵핑
+* @GetMapping : Http GetMethod URL 주소 맵핑
+* @PostMapping : Http PostMethod URL 주소 맵핑
+* @DeleteMapping Http DeleteMethod URL 주소 맵핑
+* @RequestParam : URL Query Parameter 맵핑
+* @RequestBody : Http Body를 Parsing 맵핑
+* @Valid : POJO Java class의 검증
+* @Aspect : AOP 적용시 사용
+* @Before AOP 메소드 이전 호출 지정
+* @After : AOP 메소드 호출 이후 지정 예외 발생 포함
+* @Around : AOP 이전/이후 모두 포함 예외 발생 포함
+* @AfterReturning : AOP 메소드의 호출이 정상일 때 실행
+* @AfterThrowing : AOP시 해당 메소드가 예외 발생시 지정 
+
+
