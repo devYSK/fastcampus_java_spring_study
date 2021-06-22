@@ -115,3 +115,5 @@
 * @Around : Befroe / after 모두 제어 
 
 
+### gradle 기준 의존성 추가방법
+* `implementation 'org.springframework.boot:spring-boot-starter-aop'`
