@@ -149,3 +149,7 @@
 * @AfterThrowing : AOP시 해당 메소드가 예외 발생시 지정 
 
 
+### Bean과의 Component의 차이
+@Bean 은 클래스에 붙일 수 없다. @Component는 붙일 수 있다.  
+@Bean은 주로 메소드 에 붙인다. 
+
