@@ -38,3 +38,4 @@
 1. AssertTrue / False와 같은 method 지정을 통해서 Custom Logic 적용 가능
 2. ConstraintValidator를 적용하여 재사용이 가능한 Custom Logic 적용 가능
 
+* List< Car > 같은 객체 인 경우에는 @Valid 어노테이션을 붙여야 Car 클래스 안의 어노테이션이 작동한다.  
