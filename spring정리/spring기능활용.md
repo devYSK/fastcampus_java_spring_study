@@ -31,3 +31,10 @@
 
 2. bean validation spec
    * https://beanvalidation.org/2.0-jsr380/ 
+
+# Spring Boot Custum Validation
+
+
+1. AssertTrue / False와 같은 method 지정을 통해서 Custom Logic 적용 가능
+2. ConstraintValidator를 적용하여 재사용이 가능한 Custom Logic 적용 가능
+
