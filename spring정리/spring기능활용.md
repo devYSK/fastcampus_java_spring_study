@@ -7,6 +7,7 @@
 3. 흩어져 있는 경우 어디에서 검증을 하는지 알기 어려우며, 재사용의 한계가 있다.
 4. 구현에 따라 달라 질 수 있지만, 검증 Logic이 변경 되는 경우 테스트 코드 등 참조하는 클래스에서 Logic이 변경되어야 하는 부분이 발생할 수 잇다.
 
+
 ## Validation Annotation
 
 * @Size : 문자 길이 측정 (Int Type 불가)
@@ -23,16 +24,35 @@
 * @AssertTrue/False : 별도 logic 적용
 * @Valid : 해당 object validation 실행
 
+
 ## gradle dependencies
 
 1. implementation("org.springframework.boot:spring-boot-starter-validation")
 
 2. bean validation spec
-    * https://beanvalidation.org/2.0-jsr380/
+   * https://beanvalidation.org/2.0-jsr380/ 
 
 # Spring Boot Custum Validation
+
 
 1. AssertTrue / False와 같은 method 지정을 통해서 Custom Logic 적용 가능
 2. ConstraintValidator를 적용하여 재사용이 가능한 Custom Logic 적용 가능
 
 * List< Car > 같은 객체 인 경우에는 @Valid 어노테이션을 붙여야 Car 클래스 안의 어노테이션이 작동한다.  
+
+
+# Exception처리
+
+* Web Application의 입장에서 바라 보았을 때, 에러가 났을 때 내려줄 수 있는 방법은 많지 않다.
+
+1. 에러페이지
+
+2. 4xx Error or 5xx Error
+
+3. Client가 200외에 처리를 하지 못 할 때는 200을 내려주고 별도의 에러 Message 전달 
+
+### 어노테이션
+
+* @ControllerAdvice : Global 예외 처리 및 특정 package / Controller 예외 처리
+
+* @ExceptionHandler : 특정 Controller의 예외 처리 
