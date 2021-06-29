@@ -15,7 +15,8 @@ import java.lang.reflect.Method;
 public class ParameterAop {
 
     @Pointcut("execution(* com.example.aop.controller..*.*(..))")
-    private void cut() { }
+    private void cut() {
+    }
 
     /*
     들어가기전 아규먼트 (메소드 실행전 어떤 값, 들어가고 나서 어떤 값 리턴)
@@ -24,7 +25,7 @@ public class ParameterAop {
 
     @Before("cut()")
     public void before(JoinPoint joinPoint) {
-        MethodSignature methodSignature = (MethodSignature)joinPoint.getSignature();
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();
         System.out.println(method.getName());
         Object[] args = joinPoint.getArgs();
@@ -43,7 +44,6 @@ public class ParameterAop {
         System.out.println("return obj");
         System.out.println(returnObj);
     }
-
 
 
 }

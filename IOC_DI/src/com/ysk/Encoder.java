@@ -8,7 +8,7 @@ public class Encoder {
     }
 
 
-    public String encode (String message) {
+    public String encode(String message) {
         return iEncoder.encode(message);
     }
 }

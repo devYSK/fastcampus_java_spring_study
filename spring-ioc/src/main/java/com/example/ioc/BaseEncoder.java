@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 @Component
-public class BaseEncoder implements IEncoder{
+public class BaseEncoder implements IEncoder {
 
 
     public String encode(String message) {
