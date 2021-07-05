@@ -22,4 +22,12 @@ public class ApiController {
 
         return restTemplateService.hello();
     }
+
+
+    @GetMapping("/hello")
+    public UserResponse getHelloPost() {
+
+        return restTemplateService.post();
+    }
+
 }
