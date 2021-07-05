@@ -72,3 +72,6 @@
 * Interceptor란 Filter와 유사한 형태로 존재 하지만, 차이점은 Spring Context에 등록된다.
 * AOP와 유사한 기능을 제공할 수 있으며, 주로 인증 단계를 처리하거나 logging을 하는데에 사용된다. 이를 선/후 처리 함으로써, Service business logic과 분리 시킨다. 
 
+
+# Server - to - Server 연동
+
