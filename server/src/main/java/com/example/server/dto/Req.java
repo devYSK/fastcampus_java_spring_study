@@ -11,7 +11,7 @@ public class Req<T> {
 
 
     private Header header;
-    private T body;
+    private T resBody;
 
     @Data
     @NoArgsConstructor

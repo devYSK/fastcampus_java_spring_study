@@ -3,7 +3,7 @@ package com.example.client.dto;
 public class Req<T> {
     private Header header;
 
-    private T body;
+    private T resBody;
 
     public static class Header {
         private String responseCode;
@@ -32,19 +32,19 @@ public class Req<T> {
         this.header = header;
     }
 
-    public T getBody() {
-        return body;
+    public T getResBody() {
+        return resBody;
     }
 
-    public void setBody(T body) {
-        this.body = body;
+    public void setResBody(T resBody) {
+        this.resBody = resBody;
     }
 
     @Override
     public String toString() {
         return "Req{" +
                 "header=" + header +
-                ", body=" + body +
+                ", body=" + resBody +
                 '}';
     }
 }
