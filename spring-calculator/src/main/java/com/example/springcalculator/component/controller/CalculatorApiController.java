@@ -1,6 +1,8 @@
 package com.example.springcalculator.component.controller;
 
 import com.example.springcalculator.component.Calculator;
+import com.example.springcalculator.dto.Req;
+import com.example.springcalculator.dto.Res;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,13 @@ public class CalculatorApiController {
     }
 
     @PostMapping("/minus")
-    public int minus(@RequestParam int x, @RequestParam int y) {
-        return calculator.minus(x, y);
+    public Res minus(@RequestBody Req req) {
+
+        int result = calculator.minus(req.getX(), req.getY());
+
+        Res res = new Res();
+        res.setResult(result);
+        res.setResponseBody(new Res.Body());
+        return res;
     }
 }
