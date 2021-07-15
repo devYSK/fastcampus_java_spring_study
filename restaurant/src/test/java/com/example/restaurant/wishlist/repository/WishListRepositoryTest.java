@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 @SpringBootTest
 public class WishListRepositoryTest {
 
     @Autowired
     private WishListRepository wishListRepository;
-
 
 
     private WishListEntity create() {
@@ -42,17 +43,51 @@ public class WishListRepositoryTest {
     }
 
     @Test
-    public void findByIdTest() {
+    public void updateTest() {
+        WishListEntity wishListEntity = create();
 
+        WishListEntity expected = wishListRepository.save(wishListEntity);
+
+
+        expected.setTitle("update test");
+        WishListEntity saveEntity = wishListRepository.save(expected);
+
+        Assertions.assertEquals("update test", saveEntity.getTitle());
+        Assertions.assertEquals(1, wishListRepository.listAll().size());
+
+    }
+    @Test
+    public void findByIdTest() {
+        WishListEntity wishListEntity = create();
+        wishListRepository.save(wishListEntity);
+
+        Optional<WishListEntity> expected = wishListRepository.findById(1);
+
+        Assertions.assertTrue(expected.isPresent());
+        Assertions.assertEquals(1, expected.get().getIndex());
     }
 
     @Test
     public void deleteTest() {
+        WishListEntity wishListEntity = create();
+
+        wishListRepository.save(wishListEntity);
+
+        wishListRepository.deleteById(1);
+
+        int count = wishListRepository.listAll().size();
+
+        Assertions.assertEquals(0, count);
 
     }
 
     @Test
     public void listAllTest() {
+        wishListRepository.save(create());
+        wishListRepository.save(create());
 
+        int count = wishListRepository.listAll().size();
+
+        Assertions.assertEquals(2, count);
     }
 }
