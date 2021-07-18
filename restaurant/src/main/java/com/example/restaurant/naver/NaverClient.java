@@ -44,7 +44,8 @@ public class NaverClient {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<Object> httpEntity = new HttpEntity<>(headers);
-        ParameterizedTypeReference<SearchLocalRes> responseType = new ParameterizedTypeReference<>() {};
+
+        ParameterizedTypeReference<SearchLocalRes> responseType = new ParameterizedTypeReference<SearchLocalRes>() {};
 
         ResponseEntity<SearchLocalRes> responseEntity = new RestTemplate().exchange(
                 uri,
@@ -53,6 +54,7 @@ public class NaverClient {
                 responseType
         );
 
+//        return null;
         return responseEntity.getBody();
     }
 

@@ -33,6 +33,6 @@ class WishListServiceTest {
 
         System.out.println(result);
 
-        Assertions.assertNotNull(result.getCategory());
+        Assertions.assertNotNull(result.getItems().stream().findFirst().get().getCategory());
     }
 }

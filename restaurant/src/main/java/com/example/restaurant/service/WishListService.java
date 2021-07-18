@@ -43,7 +43,7 @@ public class WishListService {
                 WishListDto result = new WishListDto();
 
                 result.setTitle(localItem.getTitle());
-                result.setCategory(searchLocalRes.getCategory());
+                result.setCategory(localItem.getCategory());
                 result.setAddress(localItem.getAddress());
                 result.setReadAddress(localItem.getRoadAddress());
                 result.setImageLink(imageItem.getLink());
