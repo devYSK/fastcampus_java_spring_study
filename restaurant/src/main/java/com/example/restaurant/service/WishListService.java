@@ -6,6 +6,8 @@ import com.example.restaurant.naver.dto.SearchImageReq;
 import com.example.restaurant.naver.dto.SearchImageRes;
 import com.example.restaurant.naver.dto.SearchLocalReq;
 import com.example.restaurant.naver.dto.SearchLocalRes;
+import com.example.restaurant.repository.WishListRepository;
+import com.example.restaurant.wishlist.WishListEntity;
 import com.example.restaurant.wishlist.dto.WishListDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class WishListService {
 
     private final NaverClient naverClient;
+    private final WishListRepository wishListRepository;
 
     public WishListDto search(String query) {
 
@@ -45,7 +48,7 @@ public class WishListService {
                 result.setTitle(localItem.getTitle());
                 result.setCategory(localItem.getCategory());
                 result.setAddress(localItem.getAddress());
-                result.setReadAddress(localItem.getRoadAddress());
+                result.setRoadAddress(localItem.getRoadAddress());
                 result.setImageLink(imageItem.getLink());
                 result.setHomePageLink(localItem.getLink());
 
@@ -62,4 +65,41 @@ public class WishListService {
         // 결과를 리턴
     }
 
+    public WishListEntity add(WishListDto wishListDto) {
+        WishListEntity entity = dtoToEntity(wishListDto);
+
+        return wishListRepository.save(entity);
+    }
+
+    private WishListEntity dtoToEntity(WishListDto wishListDto) {
+        WishListEntity entity = new WishListEntity();
+        entity.setIndex(wishListDto.getIndex());
+        entity.setTitle(wishListDto.getTitle());
+        entity.setCategory(wishListDto.getCategory());
+        entity.setAddress(wishListDto.getAddress());
+        entity.setRoadAddress(wishListDto.getRoadAddress());
+        entity.setHomePageLink(wishListDto.getHomePageLink());
+        entity.setImageLink(wishListDto.getImageLink());
+        entity.setVisit(wishListDto.isVisit());
+        entity.setVisitCount(wishListDto.getVisitCount());
+        entity.setLastVisitDate(wishListDto.getLastVisitDate());
+
+        return entity;
+    }
+
+    private WishListDto entityToDto(WishListEntity wishListEntity) {
+        WishListDto dto = new WishListDto();
+        dto.setIndex(wishListEntity.getIndex());
+        dto.setTitle(wishListEntity.getTitle());
+        dto.setCategory(wishListEntity.getCategory());
+        dto.setAddress(wishListEntity.getAddress());
+        dto.setRoadAddress(wishListEntity.getRoadAddress());
+        dto.setHomePageLink(wishListEntity.getHomePageLink());
+        dto.setImageLink(wishListEntity.getImageLink());
+        dto.setVisit(wishListEntity.isVisit());
+        dto.setVisitCount(wishListEntity.getVisitCount());
+        dto.setLastVisitDate(wishListEntity.getLastVisitDate());
+
+        return dto;
+    }
 }
