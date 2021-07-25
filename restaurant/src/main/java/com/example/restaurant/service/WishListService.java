@@ -12,6 +12,9 @@ import com.example.restaurant.wishlist.dto.WishListDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class WishListService {
@@ -101,5 +104,11 @@ public class WishListService {
         dto.setLastVisitDate(wishListEntity.getLastVisitDate());
 
         return dto;
+    }
+
+    public List<WishListDto> findAll() {
+        return wishListRepository.listAll().stream()
+                .map(this::entityToDto)
+                .collect(Collectors.toList());
     }
 }
